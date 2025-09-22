@@ -25,8 +25,9 @@ export function Register(){
 
             navigate("/complaint");
         } catch (error) {
-            if (error.response && error.response.data) {
-                setError(JSON.stringify(error.response.data)); //more useful error data
+            if (error.response) {
+                console.error("Backend response:", error.response.data);
+                setError(JSON.stringify(error.response.data, null, 2));
             } else {
                 setError(error.message);
             }

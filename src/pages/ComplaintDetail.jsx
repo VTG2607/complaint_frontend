@@ -13,7 +13,7 @@ export function ComplaintDetail(){
                  const token = localStorage.getItem("authToken");
                  const response = await api.get(`https://complaint-backend-48f344d05183.herokuapp.com/api/complaint/${id}/`, {
                      headers: {
-                         Authorization: `Bearer ${token}`,
+                     Authorization: `Bearer ${token}`,
                      }
                  });
                  console.log("Complaint data:", response.data)
