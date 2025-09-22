@@ -16,7 +16,8 @@ export function Register(){
             const response = await api.post("https://complaint-backend-48f344d05183.herokuapp.com/api/dj-rest-auth/registration/", {
                 username: username,
                 email: email,
-                password: password,
+                password1: password,  // Changed from 'password' to 'password1'
+                password2: password
 
             });
 
@@ -39,7 +40,7 @@ export function Register(){
                     <label htmlFor="Username">Username</label>
                     <input className=" p-3 bg-sky-100 border-3 border-gray-600 rounded-s focus:outline-none focus:ring-2"
                            type="text"
-                           id="username"
+                           id="Username"
                            onChange={(e) => setUsername(e.target.value)}
                            placeholder="Username" />
                     <label htmlFor="Email">Email</label>
@@ -54,7 +55,6 @@ export function Register(){
                            id="password"
                            onChange={e =>setPassword(e.target.value)}
                            placeholder="Password" />
-
                     <button
                         type="submit"
                         className="w-full mt-6 bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
