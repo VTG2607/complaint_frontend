@@ -3,6 +3,6 @@ import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "https://vtg2607.github.io/complaint_frontend/", // <-- trailing slash required for GH Pages
+  base: "/complaint_frontend/", // Only repo name
   plugins: [react()],
 })
