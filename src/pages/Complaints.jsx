@@ -1,0 +1,73 @@
+import {Link} from "react-router-dom";
+import {useState, useEffect} from "react";
+import api from "../services/api.jsx";
+import {SortingBar} from "../components/SortingBar.jsx";
+export function Complaints(){
+    const [complaints, setComplaints] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState("");
+    const [selectedStatus, setSelectedStatus] = useState("");
+    const [error, setError] = useState(null);
+
+
+    const priorityMap = {HIGH: 1, MEDIUM: 2, LOW: 3};
+
+    useEffect(() => {
+        const fetchComplaints = async (categoryId = "") => {
+            try {
+                // Token from login
+                const token = localStorage.getItem("authToken");
+                const url = categoryId ? `/api/complaint/category/${categoryId}` : "https://complaint-backend-48f344d05183.herokuapp.com/api/complaint/";
+
+                const response = await api.get(url, {
+                    headers: {
+                        Authorization: `Token ${token}`, // <- important for authenticated requests
+                    },
+                });
+                let filtered = response.data;
+
+                if (selectedStatus){
+                    filtered = filtered.filter(c => c.status === selectedStatus);
+                }
+
+                filtered = filtered.sort((a, b) => priorityMap[a.priority] - priorityMap[b.priority]);
+                setComplaints(filtered);
+
+            } catch (error)
+            {
+                if (error.response && error.response.data) {
+                    setError(JSON.stringify(error.response.data));
+                } else {
+                    setError(error.message);
+                }
+            }
+        };
+
+        fetchComplaints(selectedCategory);
+    }, [selectedCategory,selectedStatus])  // re-triggers on selected Category change
+    return (
+        <>
+            <div className="w-screen  min-h-screen bg-gradient-to-b font-mono from-blue-200 to-blue-500 bg-fixed flex flex-col flex-shrink-none items-center justify-self-center">
+                <h1 className="head font-medium text-center text-5xl p-4">Complaints</h1>
+                <SortingBar selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}
+                            selectedStatus={selectedStatus} setSelectedStatus={setSelectedStatus}/>
+                <div className="complaint-list w-full max-w-6xl mx-auto">
+                    {complaints.map((complaint) => (
+                        <div className=" flex flex-col rounded-2xl bg-blue-500/30 bg-blend-multiply backdrop-blur-sm shadow-lg shadow-blue-900 gap-2 p-4 m-20" key={complaint.id}>
+                            <h2 className="complaint-title text-3xl col-end-4 text-red-900">{complaint.title}</h2>
+                            <p className="complaint-body col-span-full">{complaint.body}</p>
+                            <div className="other grid grid-cols-4 gap-4">
+                                <span className="author row-span-4"><span className="text-amber-200">Author:</span> {complaint.created_by}</span>
+                                <span className="category row-span-4"><span className="text-cyan-400">Category:</span> {complaint.category}</span>
+                                <span className="priority row-span-4"><span className="text-red-300">Priority:</span> {complaint.priority}</span>
+                                <span className="priority row-span-4"><span className="text-green-300">Status:</span> {complaint.status}</span>
+                                <Link className="w-fit p-3 btn rounded border-2 bg-red-400" to={`/complaint/${complaint.id}`}>
+                                    <button>See more</button>
+                                </Link>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </>
+    )
+}
