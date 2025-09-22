@@ -16,7 +16,7 @@ export function Complaints(){
             try {
                 // Token from login
                 const token = localStorage.getItem("authToken");
-                const url = categoryId ? `/api/complaint/category/${categoryId}` : "https://complaint-backend-48f344d05183.herokuapp.com/api/complaint/";
+                const url = categoryId ? `https://complaint-backend-48f344d05183.herokuapp.com/api/complaint/category/${categoryId}` : "https://complaint-backend-48f344d05183.herokuapp.com/api/complaint/";
 
                 const response = await api.get(url, {
                     headers: {
