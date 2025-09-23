@@ -12,7 +12,7 @@ export function CommentsCreate({ complaintId }) {
         try {
             const token = localStorage.getItem("authToken");
             const response = await api.post(
-                `http://127.0.0.1:8000/api/complaint/${complaintId}/comments/`,
+                `https://complaint-backend-4863a97516ff.herokuapp.com//api/complaint/${complaintId}/comments/`,
                 data,
                 {
                     headers: {
