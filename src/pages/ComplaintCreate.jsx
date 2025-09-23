@@ -16,7 +16,7 @@ export function ComplaintCreate(){
         api.get("https://complaint-backend-4863a97516ff.herokuapp.com/api/categories/")
             .then((response) => {setCategories(response.data)})
             .catch((error) => {console.log(error)})
-    })
+    },[])
     const handleSubmit = async (e) => {
         e.preventDefault();
         const data = {title, body, category, priority};
@@ -58,7 +58,7 @@ export function ComplaintCreate(){
                         <label htmlFor="category" className="category-label">Category</label>
                         <select className="category p-3 bg-sky-100 border-3 border-gray-600 rounded-s focus:outline-none focus:ring-2"
                                 value={category}
-                                onChange={event => {setCategory(event.target.value)}}>
+                                onChange={event => {setCategory(Number(event.target.value))}}>
                             <option value="">Select a category</option>
                             {categories.map(category => (
                                 <option key={category.id} value={category.id}>{category.name}</option>
