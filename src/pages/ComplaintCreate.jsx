@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import api from "../services/api.jsx";
 import {useNavigate} from "react-router-dom";
 
@@ -6,10 +6,17 @@ export function ComplaintCreate(){
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
     const [category, setCategory] = useState("");
+    const [categories, setCategories] = useState([]); // store fetched categories
     const[priority, setPriority] = useState("");
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
+    // fetching categories
+    useEffect(() => {
+        api.get("https://complaint-backend-4863a97516ff.herokuapp.com/api/categories/")
+            .then((response) => {setCategories(response.data)})
+            .catch((error) => {console.log(error)})
+    })
     const handleSubmit = async (e) => {
         e.preventDefault();
         const data = {title, body, category, priority};
@@ -53,10 +60,9 @@ export function ComplaintCreate(){
                                 value={category}
                                 onChange={event => {setCategory(event.target.value)}}>
                             <option value="">Select a category</option>
-                            <option value="1">HR</option>
-                            <option value="2">Work Environment</option>
-                            <option value="3">Colleague</option>
-                            <option value="4">Miscellaneous</option>
+                            {categories.map(category => (
+                                <option key={category.id} value={category.id}>{category.name}</option>
+                            ))}
                         </select>
                         <label htmlFor="priority" className="priority-label">Priority</label>
                         <select className="priority p-3 bg-sky-100 border-3 border-gray-600 rounded-s focus:outline-none focus:ring-2"
