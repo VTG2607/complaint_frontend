@@ -20,6 +20,10 @@ export function ComplaintCreate(){
     const handleSubmit = async (e) => {
         e.preventDefault();
         const data = {title, body, category, priority};
+        if (!category) {
+            setError("Please select a category");
+            return;
+        }
         try {
             const response = await api.post("https://complaint-backend-4863a97516ff.herokuapp.com/api/complaint/", data, {
                 headers: {
@@ -61,7 +65,7 @@ export function ComplaintCreate(){
                                 onChange={event => {setCategory(Number(event.target.value))}}>
                             <option value="">Select a category</option>
                             {categories.map(category => (
-                                <option key={category.id} value={category.id}>{category.name}</option>
+                                <option key={category.id} value={category.name}>{category.name}</option>
                             ))}
                         </select>
                         <label htmlFor="priority" className="priority-label">Priority</label>
