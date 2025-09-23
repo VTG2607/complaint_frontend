@@ -62,10 +62,10 @@ export function ComplaintCreate(){
                         <label htmlFor="category" className="category-label">Category</label>
                         <select className="category p-3 bg-sky-100 border-3 border-gray-600 rounded-s focus:outline-none focus:ring-2"
                                 value={category}
-                                onChange={event => {setCategory(Number(event.target.value))}}>
+                                onChange={event => {setCategory(event.target.value)}}>
                             <option value="">Select a category</option>
                             {categories.map(category => (
-                                <option key={category.id} value={category.name}>{category.name}</option>
+                                <option key={category.id} value={category.id}>{category.name}</option>
                             ))}
                         </select>
                         <label htmlFor="priority" className="priority-label">Priority</label>
