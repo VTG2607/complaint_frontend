@@ -9,7 +9,7 @@ export function Comments({complaintId}) {
         const fetchComments = async () => {
             try {
                 const token = localStorage.getItem("authToken");
-                const response = await api.get(`https://complaint-backend-48f344d05183.herokuapp.com/api/complaint/${complaintId}/comments/`, {
+                const response = await api.get(`https://complaint-backend-4863a97516ff.herokuapp.com/api/complaint/${complaintId}/comments/`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     }

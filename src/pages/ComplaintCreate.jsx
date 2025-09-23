@@ -14,7 +14,7 @@ export function ComplaintCreate(){
         e.preventDefault();
         const data = {title, body, category, priority};
         try {
-            const response = await api.post("https://complaint-backend-48f344d05183.herokuapp.com/api/complaint/", data, {
+            const response = await api.post("https://complaint-backend-4863a97516ff.herokuapp.com/api/complaint/", data, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("authToken")}`,
                 },

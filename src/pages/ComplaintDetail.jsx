@@ -11,7 +11,7 @@ export function ComplaintDetail(){
              const fetchComplaintDetails = async () => {
                  try {
                  const token = localStorage.getItem("authToken");
-                 const response = await api.get(`https://complaint-backend-48f344d05183.herokuapp.com/api/complaint/${id}/`, {
+                 const response = await api.get(`https://complaint-backend-4863a97516ff.herokuapp.com/api/complaint/${id}/`, {
                      headers: {
                      Authorization: `Bearer ${token}`,
                      }
