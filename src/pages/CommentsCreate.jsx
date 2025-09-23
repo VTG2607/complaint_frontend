@@ -4,6 +4,8 @@ import api from "../services/api.jsx";
 export function CommentsCreate({ complaintId }) {
     const [commentBody, setCommentBody] = useState("");
     const [error, setError] = useState(null);
+    const [isOpen, setIsOpen] = useState(false); // toggle state
+
 
     const handleComment = async (e) => {
         e.preventDefault();
@@ -12,8 +14,7 @@ export function CommentsCreate({ complaintId }) {
         try {
             const token = localStorage.getItem("authToken");
             const response = await api.post(
-                `https://complaint-backend-4863a97516ff.herokuapp.com/api/complaint/${complaintId}/comments/`,
-                data,
+                `https://complaint-backend-4863a97516ff.herokuapp.com/api/complaint/${complaintId}/comments/`, data,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`, // 'Bearer'
@@ -35,25 +36,36 @@ export function CommentsCreate({ complaintId }) {
         }
     };
 
+
     return (
-        <div className="fixed bottom-4 left-4 w-96 bg-white shadow-lg rounded-lg p-4">
-            <h2 className="text-xl font-semibold mb-2">Add a Comment</h2>
-            <form onSubmit={handleComment} className="flex flex-col gap-2">
-        <textarea
-            value={commentBody}
-            onChange={(e) => setCommentBody(e.target.value)}
-            placeholder="Write your comment..."
-            className="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none"
-            rows={4}
-        />
-                {error && <p className="text-red-500">{JSON.stringify(error)}</p>}
-                <button
-                    type="submit"
-                    className="bg-blue-500 text-white rounded-md py-2 hover:bg-blue-600 transition-colors"
-                >
-                    Post Comment
-                </button>
-            </form>
+        <div>
+            {/* Toggle Button */}
+            <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="fixed bottom-4 left-4 bg-blue-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-700 transition-colors">
+                {isOpen ? "Close" : "Add Comment"}
+            </button>
+
+            {/* Popup Window */}
+            {isOpen && (
+                <div className="fixed bottom-20 left-4 w-96 bg-white shadow-lg rounded-lg p-4">
+                    <h2 className="text-xl font-semibold mb-2">Add a Comment</h2>
+                    <form onSubmit={handleComment} className="flex flex-col gap-2">
+                        <textarea
+                            value={commentBody}
+                            onChange={(e) => setCommentBody(e.target.value)}
+                            placeholder="Write your comment..."
+                            className="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none"
+                            rows={4}/>
+                        {error && <p className="text-red-500">{JSON.stringify(error)}</p>}
+                        <button
+                            type="submit"
+                            className="bg-blue-500 text-white rounded-md py-2 hover:bg-blue-600 transition-colors">
+                            Post Comment
+                        </button>
+                    </form>
+                </div>
+            )}
         </div>
     );
 }

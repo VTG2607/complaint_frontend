@@ -53,10 +53,10 @@ export function ComplaintCreate(){
                                 value={category}
                                 onChange={event => {setCategory(event.target.value)}}>
                             <option value="">Select a category</option>
-                            <option value="HR">HR</option>
-                            <option value="Work Environment">Work Environment</option>
-                            <option value="Colleague">Colleague</option>
-                            <option value="Miscellaneous">Miscellaneous</option>
+                            <option value="1">HR</option>
+                            <option value="2">Work Environment</option>
+                            <option value="3">Colleague</option>
+                            <option value="4">Miscellaneous</option>
                         </select>
                         <label htmlFor="priority" className="priority-label">Priority</label>
                         <select className="priority p-3 bg-sky-100 border-3 border-gray-600 rounded-s focus:outline-none focus:ring-2"
