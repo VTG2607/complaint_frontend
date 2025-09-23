@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import api from "../services/api.jsx";
 import {useNavigate} from "react-router-dom";
 
@@ -22,7 +22,12 @@ export function ComplaintCreate(){
             });
             console.log(response);
         } catch(error) {
-            setError(error.response.data);
+            console.error(error);
+            if (error.response && error.response.data) {
+                setError(JSON.stringify(error.response.data));
+            } else {
+                setError(error.message || "Unknown error");
+            }
         }
         navigate("/complaint/me");
     }
