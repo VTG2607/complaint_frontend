@@ -4,8 +4,6 @@ import api from "../services/api.jsx";
 import {SortingBar} from "../components/SortingBar.jsx";
 export function MyComplaints(){
     const [complaints, setComplaints] = useState([]);
-    const [selectedCategory, setSelectedCategory] = useState("");
-    const [selectedStatus, setSelectedStatus] = useState("");
     const [error, setError] = useState(null);
 
     useEffect(()=> {
@@ -33,8 +31,6 @@ export function MyComplaints(){
         <>
             <div className="w-screen min-h-screen bg-gradient-to-b font-mono from-blue-200 to-blue-500 bg-fixed flex flex-col items-center">
                 <h1 className="head font-medium text-center text-5xl p-4">My Complaints</h1>
-                <SortingBar selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}
-                            selectedStatus={selectedStatus} setSelectedStatus={setSelectedStatus}/>
                 <div className="complaint-list w-full max-w-6xl mx-auto">
                     {complaints.map((complaint) => (
                         <div className="flex flex-col p-5 rounded-2xl bg-blue-500/30 bg-blend-multiply backdrop-blur-sm shadow-lg shadow-blue-900 gap-2 m-20" key={complaint.id}>
