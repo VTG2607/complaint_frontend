@@ -2,6 +2,7 @@ import {Link, useParams} from "react-router-dom";
 import {useState, useEffect} from "react";
 import api from "../services/api.jsx";
 import {Comments} from "./Comments.jsx";
+import {CommentsCreate} from "./CommentsCreate.jsx";
 export function ComplaintDetail(){
      const [complaint, setComplaints] = useState(null);
      const [error, setError] = useState(null);
@@ -49,6 +50,7 @@ export function ComplaintDetail(){
                     </div>
                 </div>
                 <Comments complaintId={complaint.id}/>
+                <CommentsCreate complaintId={complaint.id}/>
             </div>
         </>
     )
