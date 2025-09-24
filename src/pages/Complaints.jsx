@@ -46,7 +46,7 @@ export function Complaints(){
     }, [selectedCategory,selectedStatus])  // re-triggers on selected Category change
     return (
         <>
-            <div className="w-screen  min-h-screen bg-gradient-to-b font-mono from-blue-200 to-blue-500 bg-fixed flex flex-col flex-shrink-none items-center justify-self-center">
+            <div className="w-screen min-h-screen bg-gradient-to-b font-merriweather from-blue-200 to-blue-500 bg-fixed flex flex-col flex-shrink-none items-center justify-self-center">
                 <h1 className="head font-medium text-center text-5xl p-4">Complaints</h1>
                 <SortingBar selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}
                             selectedStatus={selectedStatus} setSelectedStatus={setSelectedStatus}/>

@@ -37,7 +37,7 @@ export function ComplaintDetail(){
 
     return (
         <>
-            <div className="w-screen min-h-screen items-center font-mono justify-self-center p-3 bg-gradient-to-b from-blue-200 to-blue-500 bg-fixed">
+            <div className="w-screen min-h-screen items-center justify-self-center p-3 bg-gradient-to-b from-blue-200 to-blue-500 bg-fixed font-merriweather">
                 <h1 className="head font-medium text-center text-5xl p-4">Complaints</h1>
                 <div className="complaint-list flex flex-col" key={complaint.id}>
                     <h2 className="complaint-title text-3xl pl-5 col-end-4 text-red-900">{complaint.title}</h2>

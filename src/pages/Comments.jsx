@@ -28,7 +28,7 @@ export function Comments({complaintId}) {
 
     }, [complaintId])
     return (
-        <div className="w-full justify-self-start p-3 m-3 ml-0 rounded-2xl bg-gray-300/50 shadow-blue-900 shadow-lg">
+        <div className="w-full justify-self-start p-3 m-3 ml-0 rounded-2xl bg-gray-300/50 shadow-blue-900 shadow-lg font-merriweather">
             <h1 className="head font-medium text-3xl">Comments</h1>
             {comments.map((comment) => (
                 <div className="complaint-list flex flex-col p-4 bg-blue-400/60 shadow-blue-900 shadow-lg m-3 rounded-xl">

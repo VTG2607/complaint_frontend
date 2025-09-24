@@ -29,7 +29,7 @@ export function MyComplaints(){
     })
     return (
         <>
-            <div className="w-screen min-h-screen bg-gradient-to-b font-mono from-blue-200 to-blue-500 bg-fixed flex flex-col items-center">
+            <div className="w-screen min-h-screen bg-gradient-to-b font-merriweather from-blue-200 to-blue-500 bg-fixed flex flex-col items-center">
                 <h1 className="head font-medium text-center text-5xl p-4">My Complaints</h1>
                 <div className="complaint-list w-full max-w-6xl mx-auto">
                     {complaints.map((complaint) => (

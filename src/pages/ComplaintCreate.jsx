@@ -44,7 +44,7 @@ export function ComplaintCreate(){
     }
     return (
         <>
-            <div className="flex flex-col justify-center items-center min-h-screen bg-gradient-to-b font-mono from-blue-200 to-blue-500">
+            <div className="flex flex-col justify-center items-center min-h-screen bg-gradient-to-b from-blue-200 to-blue-500 font-merriweather">
                 <h1 className="head col-span-12 align-middle text-center text-5xl p-3 mb-24">SUBMIT A COMPLAINT</h1>
                 <form onSubmit={handleSubmit} className="w-full max-w-md bg-white shadow-lg rounded-lg p-8">
                     <div className="form-group flex flex-col gap-4 m-3">

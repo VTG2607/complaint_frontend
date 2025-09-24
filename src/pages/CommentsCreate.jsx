@@ -38,7 +38,7 @@ export function CommentsCreate({ complaintId }) {
 
 
     return (
-        <div>
+        <div className="font-merriweather">
             {/* Toggle Button */}
             <button
                 onClick={() => setIsOpen(!isOpen)}

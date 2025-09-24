@@ -10,6 +10,7 @@ export function Navbar(){
                     <Link to="complaint/me">My Complaints</Link>
                     <Link to="complaint/create">Submit Complaints</Link>
                     <Link to="login">Login</Link>
+                    <Link to="register">Register</Link>
                     <Link to="logout">Logout</Link>
                 </nav>
             </div>
