@@ -5,7 +5,7 @@ export function Home(){
     return (
         <>
 
-            <div className="bg-gradient-to-b font-merriweather w-screen min-h-screen from-blue-200 to-blue-500 flex flex-col justify-center items-center">
+            <div className="bg-gradient-to-b font-merriweather w-screen min-h-screen from-blue-100 to-blue-500 flex  flex-col justify-center items-center">
                 <UserIcon className="text-2xl"/>
                 <h1 className="title text-7xl font-bold">Homepage</h1>
                 <div className="grid gap-4 justify-self-center items-center text-5xl m-20 ">

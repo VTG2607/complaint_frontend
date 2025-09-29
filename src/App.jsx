@@ -14,10 +14,9 @@ function App() {
   return (
       <>
           <Navbar/>
-
         <Routes>
             <Route>
-                <Route path={"/complaint"} element={<h1 className="bg-lime-100">ComplaintsList</h1>}></Route>
+                <Route path={"/complaint"}></Route>
             </Route>
 
             {/*Main Pages*/}

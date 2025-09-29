@@ -37,12 +37,12 @@ export function ComplaintDetail(){
 
     return (
         <>
-            <div className="w-screen min-h-screen items-center justify-self-center p-3 bg-gradient-to-b from-blue-200 to-blue-500 bg-fixed font-merriweather">
+            <div className="w-screen min-h-screen items-center justify-self-center p-3 bg-gradient-to-b from-blue-100 to-blue-400 bg-fixed font-merriweather">
                 <h1 className="head font-medium text-center text-5xl p-4">Complaints</h1>
                 <div className="complaint-list flex flex-col" key={complaint.id}>
-                    <h2 className="complaint-title text-3xl pl-5 col-end-4 text-red-900">{complaint.title}</h2>
+                    <h2 className="complaint-title text-3xl pl-5 col-end-4 text-red-900 m-5 ml-0">{complaint.title}</h2>
                     <p className="complaint-body col-span-full pl-5 ">{complaint.body}</p>
-                    <div className="other grid grid-cols-4 gap-4">
+                    <div className="other grid grid-cols-4 gap-4 pl-5">
                         <span className="author row-span-3"><span className="text-amber-200">Author:</span> {complaint.created_by}</span>
                         <span className="category row-span-3"><span className="text-cyan-400">Category:</span> {complaint.category_name}</span>
                         <span className="priority row-span-3"><span className="text-red-300">Priority:</span> {complaint.priority}</span>

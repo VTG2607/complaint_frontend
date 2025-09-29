@@ -14,8 +14,9 @@ export function ComplaintCreate(){
     // fetching categories
     useEffect(() => {
         api.get("https://complaint-backend-4863a97516ff.herokuapp.com/api/categories/")
-            .then((response) => {setCategories(response.data)})
+            .then((response) => { console.log(response.data); setCategories(response.data)})
             .catch((error) => {console.log(error)})
+
     },[])
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -44,9 +45,9 @@ export function ComplaintCreate(){
     }
     return (
         <>
-            <div className="flex flex-col justify-center items-center min-h-screen bg-gradient-to-b from-blue-200 to-blue-500 font-merriweather">
+            <div className="flex flex-col justify-center items-center min-h-screen bg-gradient-to-b from-blue-100 to-blue-400 font-merriweather">
                 <h1 className="head col-span-12 align-middle text-center text-5xl p-3 mb-24">SUBMIT A COMPLAINT</h1>
-                <form onSubmit={handleSubmit} className="w-full max-w-md bg-white shadow-lg rounded-lg p-8">
+                <form onSubmit={handleSubmit} className="w-full max-w-screen-xl bg-white shadow-lg rounded-lg p-8">
                     <div className="form-group flex flex-col gap-4 m-3">
                         <label htmlFor="title" className="title-label">Title</label>
                         <input className="title p-3 bg-sky-100 border-3 border-gray-600 rounded-s focus:outline-none focus:ring-2"
@@ -55,8 +56,9 @@ export function ComplaintCreate(){
                                value={title}
                                onChange={event => {setTitle(event.target.value)}}></input>
                         <label htmlFor="body" className="body-label">Body</label>
-                        <textarea className="body min-h p-3 bg-sky-100 border-3 border-gray-600 rounded-s focus:outline-none focus:ring-2"
+                        <textarea className="body p-3 bg-sky-100 border-3 border-gray-600 rounded-s focus:outline-none focus:ring-2"
                                placeholder="The body"
+                                  rows={6}
                                value={body}
                                onChange={event => {setBody(event.target.value)}}></textarea>
                         <label htmlFor="category" className="category-label">Category</label>
@@ -65,7 +67,7 @@ export function ComplaintCreate(){
                                 onChange={event => {setCategory(event.target.value)}}>
                             <option value="">Select a category</option>
                             {categories.map(category => (
-                                <option key={category.id} value={category.id}>{category.category_name}</option>
+                                <option key={category.id} value={category.id}>{category.name}</option>
                             ))}
                         </select>
                         <label htmlFor="priority" className="priority-label">Priority</label>

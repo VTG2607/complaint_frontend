@@ -29,7 +29,7 @@ export function MyComplaints(){
     })
     return (
         <>
-            <div className="w-screen min-h-screen bg-gradient-to-b font-merriweather from-blue-200 to-blue-500 bg-fixed flex flex-col items-center">
+            <div className="w-screen min-h-screen bg-gradient-to-b font-merriweather from-blue-100 to-blue-400 bg-fixed flex flex-col items-center">
                 <h1 className="head font-medium text-center text-5xl p-4">My Complaints</h1>
                 <div className="complaint-list w-full max-w-6xl mx-auto">
                     {complaints.map((complaint) => (
@@ -40,7 +40,7 @@ export function MyComplaints(){
                                 <span className="author row-span-3"><span className="text-amber-200">Author:</span> {complaint.created_by}</span>
                                 <span className="category row-span-3"><span className="text-cyan-400">Category:</span> {complaint.category_name}</span>
                                 <span className="priority row-span-3"><span className="text-red-300">Priority:</span> {complaint.priority}</span>
-                                <span className="priority row-span-3"><span className="text-red-300">Status</span> {complaint.status}</span>
+                                <span className="status row-span-3"><span className="text-green-300">Status</span> {complaint.status}</span>
                                 <Link className="w-fit p-3 btn rounded border-2 bg-red-400" to={`/complaint/${complaint.id}`}>
                                     <button>See more</button>
                                 </Link>
