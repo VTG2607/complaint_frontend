@@ -44,7 +44,7 @@ export function ComplaintDetail(){
                     <p className="complaint-body col-span-full pl-5 ">{complaint.body}</p>
                     <div className="other grid grid-cols-4 gap-4 pl-5">
                         <span className="author row-span-3"><span className="text-amber-200">Author:</span> {complaint.created_by}</span>
-                        <span className="category row-span-3"><span className="text-cyan-400">Category:</span> {complaint.category_name}</span>
+                        <span className="category row-span-3"><span className="text-blue-700">Category:</span> {complaint.category_name}</span>
                         <span className="priority row-span-3"><span className="text-red-300">Priority:</span> {complaint.priority}</span>
                         <span className="priority row-span-4"><span className="text-green-300">Status:</span> {complaint.status}</span>
                     </div>

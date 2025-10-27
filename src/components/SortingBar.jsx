@@ -4,7 +4,7 @@ export function SortingBar({selectedCategory, setSelectedCategory, selectedStatu
         <>
             <div className=" w-full max-w-screen-xl flex gap-4 justify-center text-center">
                 <div className="flex flex-col m-3">
-                    <label htmlFor="category" className="category-label mb-3 text-cyan-300">Category</label>
+                    <label htmlFor="category" className="category-label mb-3 text-blue-700">Category</label>
                     <select className="category p-3 bg-sky-100 border-3 border-gray-600 rounded-s focus:outline-none focus:ring-2 rounded-3xl"
                             value={selectedCategory}
                             onChange={event => {setSelectedCategory(event.target.value)}}>

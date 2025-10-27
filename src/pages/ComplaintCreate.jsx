@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import api from "../services/api.jsx";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 export function ComplaintCreate(){
     const [title, setTitle] = useState("");
@@ -8,6 +8,7 @@ export function ComplaintCreate(){
     const [category, setCategory] = useState("");
     const [categories, setCategories] = useState([]); // store fetched categories
     const[priority, setPriority] = useState("");
+    const [loggedIn, setLoggedIn] = useState(false);
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
@@ -18,6 +19,12 @@ export function ComplaintCreate(){
             .catch((error) => {console.log(error)})
 
     },[])
+
+    useEffect(() => {
+        const token = localStorage.getItem("authToken");
+        setLoggedIn(!!token);
+    }, []);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         const data = {title, body, category, priority};
@@ -42,6 +49,22 @@ export function ComplaintCreate(){
             }
         }
         navigate("/complaint/me");
+    }
+    if (!loggedIn) {
+        return (
+            <div className="w-screen min-h-screen flex items-center justify-center bg-gradient-to-b from-blue-100 to-blue-400 font-merriweather">
+                <div className="text-center bg-white/30 backdrop-blur-md p-10 rounded-2xl shadow-lg">
+                    <h2 className="text-3xl font-semibold text-blue-900 mb-4">Please log in</h2>
+                    <p className="text-blue-800 mb-6">You need to log in to submit complaints.</p>
+                    <Link
+                        to="/login"
+                        className="px-6 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition"
+                    >
+                        Go to Login
+                    </Link>
+                </div>
+            </div>
+        );
     }
     return (
         <>
