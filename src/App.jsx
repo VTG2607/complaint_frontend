@@ -6,7 +6,6 @@ import {Login} from "./pages/Login.jsx";
 import {Register} from "./pages/Register.jsx";
 import {Navbar} from "./components/Navbar.jsx";
 import {MyComplaints} from "./pages/MyComplaints.jsx";
-import {Profile} from "./pages/Profile.jsx";
 import {Logout} from "./pages/Logout.jsx";
 import {ComplaintCreate} from "./pages/ComplaintCreate.jsx";
 

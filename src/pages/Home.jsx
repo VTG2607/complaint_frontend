@@ -11,7 +11,6 @@ export function Home(){
                 <div className="grid gap-4 justify-self-center items-center text-5xl m-20 ">
                         <Link className=" p-4 col-span-4 login-link bg-gradient-to-r from-blue-100 via-blue-200 to-blue-300 text-center rounded-xl border-gray-600 block" to="/complaint">Complaints</Link>
                         <Link className=" p-4 col-span-4 login-link bg-gradient-to-r from-blue-100 via-blue-200 to-blue-300 text-center rounded-xl border-gray-600 block" to="/complaint/me">My Complaints</Link>
-                        <Link className=" p-4 col-span-4 login-link bg-gradient-to-r from-blue-100 via-blue-200 to-blue-300 text-center rounded-xl border-gray-600 block" to="/complaint">Profile</Link>
                         <Link className=" p-4 col-span-4 login-link bg-gradient-to-r from-blue-100 via-blue-200 to-blue-300 text-center rounded-xl border-gray-600 block" to="/login">Login</Link>
                 </div>
             </div>
