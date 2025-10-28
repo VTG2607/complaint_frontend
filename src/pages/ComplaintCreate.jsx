@@ -33,7 +33,7 @@ export function ComplaintCreate(){
             return;
         }
         try {
-            const response = await api.post("https://complaint-backend-4863a97516ff.herokuapp.com/api/complaint/", data, {
+            const response = await api.post("api/complaint/", data, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("authToken")}`,
                 },

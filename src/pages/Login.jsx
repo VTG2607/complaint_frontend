@@ -13,7 +13,7 @@ export function Login(){
         e.preventDefault();
 
         try {
-            const response = await api.post("https://complaint-backend-4863a97516ff.herokuapp.com/api/dj-rest-auth/login/", {
+            const response = await api.post("api/dj-rest-auth/login/", {
                 username: username,
                 password: password,
 

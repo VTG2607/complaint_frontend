@@ -22,7 +22,7 @@ export function Complaints(){
                     return;
                 }
                 setLoggedIn(true);
-                const url = categoryId ? `https://complaint-backend-4863a97516ff.herokuapp.com/api/complaint/category/${categoryId}` : "https://complaint-backend-4863a97516ff.herokuapp.com/api/complaint/";
+                const url = categoryId ? `api/complaint/category/${categoryId}` : "https://complaint-backend-4863a97516ff.herokuapp.com/api/complaint/";
 
                 const response = await api.get(url, {
                     headers: {

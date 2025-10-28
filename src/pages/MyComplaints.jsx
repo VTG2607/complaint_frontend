@@ -16,7 +16,7 @@ export function MyComplaints(){
                     return;
                 }
                 setLoggedIn(true);
-                const response = await api.get(`https://complaint-backend-4863a97516ff.herokuapp.com/api/complaint/me/`, {
+                const response = await api.get(`api/complaint/me/`, {
                     headers: {
                         Authorization: `Bearer ${token}` }
                 })

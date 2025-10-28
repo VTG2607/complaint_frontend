@@ -13,7 +13,7 @@ export function Register(){
         e.preventDefault();
 
         try {
-            await api.post("https://complaint-backend-4863a97516ff.herokuapp.com/api/dj-rest-auth/registration/", {
+            await api.post("api/dj-rest-auth/registration/", {
                 username: username,
                 email: email,
                 password1: password,  // Changed from 'password' to 'password1'

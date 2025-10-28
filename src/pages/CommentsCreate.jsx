@@ -14,7 +14,7 @@ export function CommentsCreate({ complaintId }) {
         try {
             const token = localStorage.getItem("authToken");
             const response = await api.post(
-                `https://complaint-backend-4863a97516ff.herokuapp.com/api/complaint/${complaintId}/comments/`, data,
+                `api/complaint/${complaintId}/comments/`, data,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`, // 'Bearer'
