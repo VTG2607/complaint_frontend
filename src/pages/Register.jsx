@@ -20,7 +20,7 @@ export function Register(){
                 password2: password
 
             });
-            alert("Registration successful! Please check your email to verify your account.");
+            alert("Registration successful! Please login!");
 
             navigate("/login");
         } catch (error) {
