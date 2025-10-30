@@ -30,9 +30,6 @@ function App() {
                 <Route path="me" element={<MyComplaints />} />
                 <Route path="create" element={<ComplaintCreate />} />
             </Route>
-
-            {/*User Profile*/}
-            <Route path={"/me-profile"} element={<Profile />} />
             <Route path="*" element= {<Home />} />
         </Routes>
       </>
