@@ -1,12 +1,13 @@
 import {Link, useNavigate} from "react-router-dom";
 import {useState} from "react";
 import api from "../services/api.jsx";
-import {Logout} from "./Logout.jsx";
+import {useAuth} from "../context/AuthenticationContext.jsx";
 
 export function Login(){
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
+    const { login } = useAuth();
     const navigate = useNavigate();
 
     const handleSubmission = async (e) => {
@@ -20,7 +21,7 @@ export function Login(){
             })
 
             // Save token in localStorage (you’ll use this for authenticated requests)
-            localStorage.setItem("authToken", response.data.key); // dj-rest-auth returns { "key": "..." }
+            login(response.data.key) // dj-rest-auth returns { "key": "..." }
 
             // Redirect user
             navigate("/complaint");

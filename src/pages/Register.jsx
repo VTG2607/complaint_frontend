@@ -35,7 +35,7 @@ export function Register(){
     return (
         <div className="flex justify-center items-center min-h-screen bg-gradient-to-b font-merriweather from-blue-100 to-blue-400">
             <form  onSubmit={handleRegistration} className="w-full max-w-md bg-white shadow-lg rounded-lg p-8">
-                <h1 className=" col-span-12 align-middle text-center text-5xl p-3">Register</h1>
+                <h1 className="col-span-12 align-middle text-center text-5xl p-3">Register</h1>
                 <div className="form-group flex flex-col gap-4 m-3">
                     <label htmlFor="Username">Username</label>
                     <input className=" p-3 bg-sky-100 border-3 border-gray-600 rounded-s focus:outline-none focus:ring-2"

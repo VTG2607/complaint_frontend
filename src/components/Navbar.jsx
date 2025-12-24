@@ -1,6 +1,8 @@
 import {Link} from "react-router-dom";
+import {useAuth} from "../context/AuthenticationContext.jsx";
 
 export function Navbar(){
+const {loggedIn} = useAuth();
     return (
         <>
             <div className="p-4 bg-gradient-to-b bg-blue-100 text-blue-700">
@@ -13,9 +15,9 @@ export function Navbar(){
                     <Link to="complaint">Complaint</Link>
                     <Link to="complaint/me">My Complaints</Link>
                     <Link to="complaint/create">Submit Complaints</Link>
-                    <Link to="login">Login</Link>
-                    <Link to="register">Register</Link>
-                    <Link to="logout">Logout</Link>
+                    {!loggedIn && <Link to="login">Login</Link>}
+                    {!loggedIn && <Link to="register">Register</Link>}
+                    {loggedIn && <Link to="logout">Logout</Link>}
                 </nav>
             </div>
             <div className=" w-screen h-1 bg-gradient-to-r from-transparent via-blue-600 to-transparent rounded-full absolute"></div>
