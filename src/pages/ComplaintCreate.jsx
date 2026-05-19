@@ -14,7 +14,7 @@ export function ComplaintCreate(){
 
     // fetching categories
     useEffect(() => {
-        api.get("https://complaint-backend-4863a97516ff.herokuapp.com/api/categories/")
+        api.get("api/categories/")
             .then((response) => { console.log(response.data); setCategories(response.data)})
             .catch((error) => {console.log(error)})
 

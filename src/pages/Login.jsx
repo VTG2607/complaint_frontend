@@ -12,7 +12,6 @@ export function Login(){
 
     const handleSubmission = async (e) => {
         e.preventDefault();
-
         try {
             const response = await api.post("api/dj-rest-auth/login/", {
                 username: username,
@@ -33,7 +32,6 @@ export function Login(){
                 setError(error.message);
             }
         }
-
 
     }
 
